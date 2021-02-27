@@ -8,7 +8,7 @@ namespace Training_API.Data.Interfaces
     {
         Task<TrainingRoomPerson[]> GetAllAsync();
         Task<TrainingRoomPerson> GetByIdAsync(int trainingRoomPersonId);
-        List<int> ReturnPeopleQuantityPerRoomList();
+        List<int> ReturnPeopleQuantityPerRoomList(int stageTimeId);
         int ReturnPeopleQuantityInRoom(int trainingRoomid);
     }
 }

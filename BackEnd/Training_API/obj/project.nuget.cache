@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0iQbWZmZkbeO/9RzRXdDFXAD4Fm9Mbvd8+0aL4ijuJTp8Zj9g98dXDNFu0PReUfDJvRTGPaEiBadExpeQrg2OA==",
+  "dgSpecHash": "1qlJD2J6QY1VjQAophY1UJ4q+MPr6oRM1o1i7EDndhUUy+XTVk79YRz40Ttx0Iakdp3kvxW0d5XzWQmjX9ORCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\Training_API\\Training_API.csproj",
+  "projectFilePath": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\Training_API\\Training_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matmm\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\matmm\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.7\\microsoft.aspnetcore.jsonpatch.3.1.7.nupkg.sha512",

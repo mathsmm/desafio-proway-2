@@ -31,13 +31,13 @@ namespace Training_API.Data.Services
             return await query.FirstOrDefaultAsync();
         }
 
-        public List<int> ReturnPeopleQuantityPerRoomList()
+        public List<int> ReturnPeopleQuantityPerRoomList(int stageTimeId)
         {
             List<int> list = new List<int>();
             foreach (var trainingRoomId in _trainingRoom.ReturnRoomIdList())
             {
                 IQueryable<TrainingRoomPerson> query = _context.TrainingRoomPerson;
-                query = query.Where(trp => trp.StageTimeId == 1 && trp.TrainingRoomId == trainingRoomId);
+                query = query.Where(trp => trp.StageTimeId == stageTimeId && trp.TrainingRoomId == trainingRoomId);
                 list.Add(query.Count());
             }
             return list;

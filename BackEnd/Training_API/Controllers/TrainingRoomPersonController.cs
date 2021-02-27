@@ -76,9 +76,10 @@ namespace Training_API.Controllers
                 {
                     return BadRequest("The room is already full! Please delete the instance you created.");
                 }
+                int stageTimeId = trainingRoomPerson.StageTimeId;
                 if(
                     _verification.VerifyDifferenceOfOne(
-                        _trainingRoomPerson.ReturnPeopleQuantityPerRoomList()
+                        _trainingRoomPerson.ReturnPeopleQuantityPerRoomList(stageTimeId)
                     )
                 )
                 {

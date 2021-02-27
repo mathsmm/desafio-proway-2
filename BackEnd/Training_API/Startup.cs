@@ -64,11 +64,17 @@ namespace Training_API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            // app.UseAuthorization();
+
+            app.UseCors(
+                c => c.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+            );
 
             app.UseEndpoints(endpoints =>
             {
