@@ -10,8 +10,8 @@ using Training_API.Data;
 namespace Training_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210221180956_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20210228200239_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

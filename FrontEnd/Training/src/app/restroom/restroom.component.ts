@@ -12,7 +12,7 @@ import { RestroompersonService } from '../services/restroomperson.service';
 })
 export class RestroomComponent implements OnInit {
 
-  public restRoomTitle = 'Rest_Rooms';
+  public restRoomTitle = 'Rest-Rooms';
   public selectedRestRoom: RestRoom = new RestRoom();
 
   restRoomForm = new FormGroup({

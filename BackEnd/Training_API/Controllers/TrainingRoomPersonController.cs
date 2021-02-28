@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Training_API.Data.Interfaces;
@@ -104,7 +105,12 @@ namespace Training_API.Controllers
                     )
                 )
                 {
-                    return BadRequest("The room is already full! Please delete the instance you created.");
+                    return Ok(
+                        new {
+                            message="The room is already full! Please delete or edit the instance you created.",
+                            trainingRoomPerson
+                        }
+                    );
                 }
                 int stageTimeId = trainingRoomPerson.StageTimeId;
                 if(
@@ -113,7 +119,12 @@ namespace Training_API.Controllers
                     )
                 )
                 {
-                    return BadRequest("The difference in the number of people in each room must be one or less! Please delete the instance you created.");
+                    return Ok(
+                        new {
+                            message="The difference in the number of people in each room must be one or less! Please delete or edit the instance you created.",
+                            trainingRoomPerson
+                        }
+                    );
                 }
                 return Ok(trainingRoomPerson);
             }

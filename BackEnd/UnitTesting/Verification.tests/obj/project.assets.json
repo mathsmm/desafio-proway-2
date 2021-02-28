@@ -6855,11 +6855,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
+      "projectUniqueName": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
       "projectName": "Verification.tests",
-      "projectPath": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
+      "projectPath": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
       "packagesPath": "C:\\Users\\matmm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\UnitTesting\\Verification.tests\\obj\\",
+      "outputPath": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\UnitTesting\\Verification.tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matmm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6875,8 +6875,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\Training_API\\Training_API.csproj": {
-              "projectPath": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\Training_API\\Training_API.csproj"
+            "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\Training_API\\Training_API.csproj": {
+              "projectPath": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\Training_API\\Training_API.csproj"
             }
           }
         }

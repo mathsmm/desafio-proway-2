@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oNazOnnlXSAWQ4UBCUX62Jjbw01q+LSw8QI0hWzBubtpe8DBkD3bPwf9sPe61FH582BtyH+vtfN2oZhx2RetsQ==",
+  "dgSpecHash": "iZoMX2qArsQ6OGoIdT436t86UHVoGOmCW+AdpPq2/PyXxU6kOX6Djp9czwBeS7/Y9derD9dzVoWadEgKR1IIbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matmm\\Desktop\\Desafio senior\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
+  "projectFilePath": "C:\\Users\\matmm\\Desktop\\DESAFIO_Treinamento\\BackEnd\\UnitTesting\\Verification.tests\\Verification.tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matmm\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.7\\microsoft.aspnetcore.jsonpatch.3.1.7.nupkg.sha512",
     "C:\\Users\\matmm\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.7\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.7.nupkg.sha512",

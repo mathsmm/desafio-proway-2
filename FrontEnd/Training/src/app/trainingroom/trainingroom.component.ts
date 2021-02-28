@@ -12,7 +12,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class TrainingroomComponent implements OnInit {
 
-  public trainingRoomTitle = 'Training_Room';
+  public trainingRoomTitle = 'Training-Rooms';
   public selectedTrainingRoom: TrainingRoom = new TrainingRoom();
 
   trainingRoomForm = new FormGroup({
@@ -82,7 +82,7 @@ export class TrainingroomComponent implements OnInit {
       this.trainingRoomService.save(trainingRoom).subscribe(
         (result: any) => {
           console.log(result);
-          this.selectedTrainingRoom = result;
+          this.selectedTrainingRoom = new TrainingRoom();
           this.loadTrainingRooms();
         },
         (error: any) => {
