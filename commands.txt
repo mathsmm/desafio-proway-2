@@ -1,3 +1,4 @@
+DOTNET:
 dotnet new webapi -n Training_API
 cd Training_API
 dotnet add package Microsoft.EntityFrameworkCore
@@ -24,3 +25,10 @@ cd ..
 cd Training_API
 dotnet sln Training_API.sln add ../UnitTesting/Verification.tests/Verification.tests.csproj
 dotnet add ../UnitTesting/Verification.tests/Verification.tests.csproj reference Training_API.csproj
+
+ANGULAR:
+cd FrontEnd
+ng new Training
+npm install bootstrap
+npm install ngx-bootstrap --save
+npm install -g @angular/cli
