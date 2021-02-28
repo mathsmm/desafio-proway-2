@@ -38,7 +38,7 @@
 
 ### Requisitos obrigatórios:
 
-Crie uma interface que permita: 
+ Crie uma interface que permita: 
 
 - O cadastro de pessoas, com nome e sobrenome;
 - O cadastro das salas do evento, com nome e lotação;
@@ -49,3 +49,23 @@ Crie uma interface que permita:
 ### Requisitos desejáveis:
 - Persistência de dados;
 - Testes unitários;
+
+## Como rodar a aplicação
+
+ Antes de tudo, é preciso ter o SQL Server instalado em seu computador. A API utiliza o serviço do SQL para gerenciar um banco de dados.
+  
+ Depois de baixar o SQL Server, é preciso configurar a conexão no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão.
+  
+ Para executar a API através do Visual Studio Code, deve-se abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "Training_API" no diretório "BackEnd" com o comando `cd` e a tecla `TAB` e digitar os seguintes comandos:
+ ```
+ dotnet tool install --global dotnet-ef
+ dotnet ef database update
+ dotnet run
+```
+  
+ Antes de iniciar o projeto do Angular, deve-se instalar o Node.js
+  
+ Após isso, no Visual Studio Code, necessita-se abrir outro Terminal, utilizar o comando `cd` e a tecla `TAB` para selecionar a pasta "Training" no diretório "FrontEnd" e digitar os seguintes comandos:
+ ```
+ npm install -g @angular/cli
+ ```
