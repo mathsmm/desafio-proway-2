@@ -17,9 +17,13 @@ export class TrainingroompersonService {
     return this.http.get<TrainingRoomPerson[]>(this.baseURL);
   }
 
-  // getById(id: number) : Observable<TrainingRoomPerson> {
-  //   return this.http.get<TrainingRoomPerson>(`${this.baseURL}/id=${id}`);
-  // }
+  getByRoomId(roomId: number) : Observable<TrainingRoomPerson[]> {
+    return this.http.get<TrainingRoomPerson[]>(`${this.baseURL}/roomid=${roomId}`);
+  }
+
+  getByPersonId(personId: number) : Observable<TrainingRoomPerson[]> {
+    return this.http.get<TrainingRoomPerson[]>(`${this.baseURL}/personid=${personId}`);
+  }
 
   save(trainingRoomPerson: TrainingRoomPerson) {
     return this.http.post(this.baseURL, trainingRoomPerson);

@@ -1,13 +1,9 @@
 <div class="container">
-
   <div class="row">
-
     <div *ngIf="selectedPerson.id != 0" class="col-sm-6">
-
       <app-title [title]="(selectedPerson.id === -1 ? 'New Person': 'Code: ' + selectedPerson.id)">
         <button class="btn btn-sm btn-outline-danger" (click)="goBack()">Go Back</button>
       </app-title>
-
       <form [formGroup]="personForm" (submit)="onSubmit()">
         <div class="form-group">
           <label>Name</label>
@@ -21,7 +17,43 @@
           <button class="btn btn-success" [disabled]="!personForm.valid">Save</button>
         </div>
       </form>
-
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+              <th style="width:8%" scope="col">#</th>
+              <th style="width:22%" scope="col">Training room name</th>
+              <th style="width:35%" scope="col">Stage starting time</th>
+              <th style="width:35%" scope="col">Stage ending time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trainingRoomPerson of trainingRoomPeople">
+            <th scope="row">{{trainingRoomPerson.id}}</th>
+            <td>{{trainingRoomPerson.trainingRoom.name}}</td>
+            <td>{{trainingRoomPerson.stageTime.startingDateTime}}</td>
+            <td>{{trainingRoomPerson.stageTime.endingDateTime}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+              <th style="width:8%" scope="col">#</th>
+              <th style="width:22%" scope="col">Rest room name</th>
+              <th style="width:35%" scope="col">Rest starting time</th>
+              <th style="width:35%" scope="col">Rest ending time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restRoomPerson of restRoomPeople">
+            <th scope="row">{{restRoomPerson.id}}</th>
+            <td>{{restRoomPerson.restRoom.name}}</td>
+            <td>{{restRoomPerson.restTime.startingDateTime}}</td>
+            <td>{{restRoomPerson.restTime.endingDateTime}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div [ngClass]="{'col-sm-6': selectedPerson.id != 0, 'col-sm-12': selectedPerson.id == 0}">
@@ -31,10 +63,10 @@
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Options</th>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
+            <th style="width:12%" scope="col">Options</th>
+            <th style="width:8%" scope="col">#</th>
+            <th style="width:40%" scope="col">Name</th>
+            <th style="width:40%" scope="col">Surname</th>
           </tr>
         </thead>
         <tbody>

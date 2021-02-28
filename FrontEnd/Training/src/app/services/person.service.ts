@@ -17,10 +17,6 @@ export class PersonService {
     return this.http.get<Person[]>(this.baseURL);
   }
 
-  getById(id: number) : Observable<Person> {
-    return this.http.get<Person>(`${this.baseURL}/id=${id}`);
-  }
-
   save(person: Person) {
     return this.http.post(this.baseURL, person);
   }

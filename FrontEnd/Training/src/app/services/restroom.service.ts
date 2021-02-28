@@ -17,10 +17,6 @@ export class RestroomService {
     return this.http.get<RestRoom[]>(this.baseURL);
   }
 
-  getById(id: number) : Observable<RestRoom> {
-    return this.http.get<RestRoom>(`${this.baseURL}/id=${id}`);
-  }
-
   save(restRoom: RestRoom) {
     return this.http.post(this.baseURL, restRoom);
   }

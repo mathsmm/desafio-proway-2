@@ -1,13 +1,9 @@
 <div class="container">
-
   <div class="row">
-
     <div *ngIf="selectedRestRoom.id != 0" class="col-sm-6">
-
       <app-title [title]="(selectedRestRoom.id === -1 ? 'New Rest_Room': 'Code: ' + selectedRestRoom.id)">
         <button class="btn btn-sm btn-outline-danger" (click)="goBack()">Go Back</button>
       </app-title>
-
       <form [formGroup]="restRoomForm" (submit)="onSubmit()">
         <div class="form-group">
           <label>Name</label>
@@ -21,7 +17,24 @@
           <button class="btn btn-success" [disabled]="!restRoomForm.valid">Save</button>
         </div>
       </form>
-
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+              <th style="width:8%" scope="col">#</th>
+              <th style="width:42%" scope="col">Person name</th>
+              <th style="width:42%" scope="col">Person surname</th>
+              <th style="width:8%" scope="col">RestTime Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restRoomPerson of restRoomPeople">
+            <th scope="row">{{restRoomPerson.id}}</th>
+            <td>{{restRoomPerson.person.name}}</td>
+            <td>{{restRoomPerson.person.surname}}</td>
+            <td>{{restRoomPerson.restTimeId}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div [ngClass]="{'col-sm-6': selectedRestRoom.id != 0, 'col-sm-12': selectedRestRoom.id == 0}">
@@ -31,10 +44,10 @@
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Options</th>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Capacity</th>
+            <th style="width:12%" scope="col">Options</th>
+            <th style="width:8%" scope="col">#</th>
+            <th style="width:40%" scope="col">Name</th>
+            <th style="width:40%" scope="col">Capacity</th>
           </tr>
         </thead>
         <tbody>

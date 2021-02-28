@@ -11,14 +11,15 @@ import { MainComponent } from './main/main.component';
 import { TrainingroomComponent } from './trainingroom/trainingroom.component';
 import { TrainingroompersonComponent } from './trainingroomperson/trainingroomperson.component';
 import { RestroomComponent } from './restroom/restroom.component';
-import { RestroompersonComponent } from './restroomperson/restroomperson.component';
 import { StagetimeComponent } from './stagetime/stagetime.component';
 import { ResttimeComponent } from './resttime/resttime.component';
 import { TitleComponent } from './title/title.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+import { RestroompersonComponent } from './restroomperson/restroomperson.component';
 
 @NgModule({
-  declarations: [										
+  declarations: [	
     AppComponent,
       NavComponent,
       PersonComponent,
@@ -26,10 +27,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       TrainingroomComponent,
       TrainingroompersonComponent,
       RestroomComponent,
-      RestroompersonComponent,
       StagetimeComponent,
       ResttimeComponent,
-      TitleComponent
+      TitleComponent,
+      RestroompersonComponent
    ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

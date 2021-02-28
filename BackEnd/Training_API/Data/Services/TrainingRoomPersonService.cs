@@ -31,6 +31,23 @@ namespace Training_API.Data.Services
             return await query.FirstOrDefaultAsync();
         }
 
+        public async Task<TrainingRoomPerson[]> GetByRoomId(int roomId)
+        {
+            IQueryable<TrainingRoomPerson> query = _context.TrainingRoomPerson;
+            query = query.Include(trp => trp.Person);
+            query = query.AsNoTracking().Where(trp => trp.TrainingRoomId == roomId);
+            return await query.ToArrayAsync();
+        }
+
+        public async Task<TrainingRoomPerson[]> GetByPersonId(int personId)
+        {
+            IQueryable<TrainingRoomPerson> query = _context.TrainingRoomPerson;
+            query = query.Include(trp => trp.StageTime);
+            query = query.Include(trp => trp.TrainingRoom);
+            query = query.AsNoTracking().Where(trp => trp.PersonId == personId);
+            return await query.ToArrayAsync();
+        }
+
         public List<int> ReturnPeopleQuantityPerRoomList(int stageTimeId)
         {
             List<int> list = new List<int>();

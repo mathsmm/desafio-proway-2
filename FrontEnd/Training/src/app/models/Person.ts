@@ -1,3 +1,6 @@
+import { RestRoomPerson } from "./RestRoomPerson";
+import { TrainingRoomPerson } from "./TrainingRoomPerson";
+
 export class Person {
   
   constructor () {

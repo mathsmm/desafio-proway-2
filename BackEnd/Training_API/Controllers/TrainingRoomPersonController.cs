@@ -56,6 +56,36 @@ namespace Training_API.Controllers
             }
         }
 
+        [HttpGet("roomid={trainingRoomId}")]
+        public async Task<IActionResult> GetByRoomId(int trainingRoomId)
+        {
+            try
+            {
+                return Ok(
+                    await _trainingRoomPerson.GetByRoomId(trainingRoomId)
+                );
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"When getting the trainingroom_person, an error ocurred: {ex.Message}");
+            }
+        }
+
+        [HttpGet("personid={personId}")]
+        public async Task<IActionResult> GetByPersonId(int personId)
+        {
+            try
+            {
+                return Ok(
+                    await _trainingRoomPerson.GetByPersonId(personId)
+                );
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"When getting the trainingroom_person, an error ocurred: {ex.Message}");
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(TrainingRoomPerson trainingRoomPerson)
         {

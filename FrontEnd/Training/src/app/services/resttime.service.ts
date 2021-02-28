@@ -17,10 +17,6 @@ export class ResttimeService {
     return this.http.get<RestTime[]>(this.baseURL);
   }
 
-  // getById(id: number) : Observable<RestTime> {
-  //   return this.http.get<RestTime>(`${this.baseURL}/id=${id}`);
-  // }
-
   save(restTime: RestTime) {
     return this.http.post(this.baseURL, restTime);
   }

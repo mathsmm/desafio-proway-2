@@ -17,10 +17,6 @@ export class StagetimeService {
     return this.http.get<StageTime[]>(this.baseURL);
   }
 
-  // getById(id: number) : Observable<StageTime> {
-  //   return this.http.get<StageTime>(`${this.baseURL}/id=${id}`);
-  // }
-
   save(stageTime: StageTime) {
     return this.http.post(this.baseURL, stageTime);
   }

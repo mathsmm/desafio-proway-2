@@ -1,3 +1,7 @@
+import { RestRoomPerson } from './../models/RestRoomPerson';
+import { TrainingRoomPerson } from './../models/TrainingRoomPerson';
+import { RestroompersonService } from './../services/restroomperson.service';
+import { TrainingroompersonService } from './../services/trainingroomperson.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Person } from '../models/Person';
@@ -20,10 +24,36 @@ export class PersonComponent implements OnInit {
   });
 
   public people: Person[] = [];
+  public trainingRoomPeople: TrainingRoomPerson[] = [];
+  public restRoomPeople: RestRoomPerson[] = [];
 
   constructor(private fb: FormBuilder,
-              private personService: PersonService) {
+              private personService: PersonService,
+              private trainingRoomPersonService: TrainingroompersonService,
+              private restRoomPersonService: RestroompersonService) {
     this.createForm();
+  }
+
+  getTRPeople(personId: number) {
+    this.trainingRoomPersonService.getByPersonId(personId).subscribe(
+      (result: TrainingRoomPerson[]) => {
+        this.trainingRoomPeople = result;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getRRPeople(personId: number) {
+    this.restRoomPersonService.getByPersonId(personId).subscribe(
+      (result: RestRoomPerson[]) => {
+        this.restRoomPeople = result;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
   createForm() {
@@ -52,6 +82,8 @@ export class PersonComponent implements OnInit {
   selectPerson(person: Person) {
     this.selectedPerson = person;
     this.personForm.patchValue(person);
+    this.getTRPeople(person.id);
+    this.getRRPeople(person.id);
   }
 
   newPerson() {

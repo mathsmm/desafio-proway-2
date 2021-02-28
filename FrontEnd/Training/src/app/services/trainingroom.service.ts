@@ -17,10 +17,6 @@ export class TrainingroomService {
     return this.http.get<TrainingRoom[]>(this.baseURL);
   }
 
-  getById(id: number) : Observable<TrainingRoom> {
-    return this.http.get<TrainingRoom>(`${this.baseURL}/id=${id}`);
-  }
-
   save(trainingRoom: TrainingRoom) {
     return this.http.post(this.baseURL, trainingRoom);
   }

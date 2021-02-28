@@ -1,7 +1,9 @@
+import { RestRoomPerson } from './../models/RestRoomPerson';
 import { RestRoom } from './../models/RestRoom';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestroomService } from '../services/restroom.service';
+import { RestroompersonService } from '../services/restroomperson.service';
 
 @Component({
   selector: 'app-restroom',
@@ -20,10 +22,23 @@ export class RestroomComponent implements OnInit {
   });
 
   public restRooms: RestRoom[] = [];
+  public restRoomPeople: RestRoomPerson[] = [];
 
   constructor(private fb: FormBuilder,
-              private restRoomService: RestroomService) {
+              private restRoomService: RestroomService,
+              private restRoomPersonService: RestroompersonService) {
     this.createForm();
+  }
+
+  getPeopleInRoom(roomId: number) {
+    this.restRoomPersonService.getByRoomId(roomId).subscribe(
+      (result: RestRoomPerson[]) => {
+        this.restRoomPeople = result;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
   createForm() {
@@ -52,6 +67,7 @@ export class RestroomComponent implements OnInit {
   selectRestRoom(restRoom: RestRoom) {
     this.selectedRestRoom = restRoom;
     this.restRoomForm.patchValue(restRoom);
+    this.getPeopleInRoom(restRoom.id);
   }
 
   newRestRoom() {
