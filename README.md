@@ -108,7 +108,7 @@
  Semelhante à tabela anterior, esta relaciona as tabelas Person, Rest-Room e Rest-Time. Ela associa uma pessoa a uma sala de descanso (para realizar o intervalo) e também armazena o horário que essa pessoa comparecerá a tal sala.
 
 ## Efetuação das restrições
-### Importante:
+### IMPORTANTE:
  Para observar as restrições atuando nas tabelas Training-Room-Person e Rest-Room-Person, é preciso inspecionar elemento em seu navegador e observar o CONSOLE. Se uma restrição for violada, quem notificará será o CONSOLE do navegador.
 
 ### 1 - A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa.
