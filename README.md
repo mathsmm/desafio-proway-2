@@ -49,7 +49,7 @@
 
  Antes de tudo, é preciso ter o SQL Server, o .NET Framework e o .NET Core instalados em seu computador. A API utiliza esses serviços para funcionar e para gerenciar um banco de dados.
   
- Depois de baixar os programas necessários, é preciso configurar a conexão com o banco de dados SQL no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão.
+ Depois de baixar os programas necessários, é preciso configurar a conexão com o banco de dados SQL no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão. Para isso, crie um bloco de notas na área de trabalho e o salve como um arquivo .udl. Ao abrir esse arquivo udl, você conseguirá configurar a conexão. Depois de configurada, basta abrir o mesmo arquivo com o bloco de notas e terás a string de conexão.
   
  Para executar a API através do Visual Studio Code, deve-se abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "Training_API" no diretório "BackEnd" com o comando `cd` e a tecla `TAB` e digitar os seguintes comandos:
  ```
@@ -66,6 +66,8 @@
  npm update
  npm start
  ```
+  
+ Caso dê erro ao executar 'npm' no terminal, adicione o diretório do Node às Variáveis de Ambiente de seu computador e reinicie-o.
   
  Após essas etapas, a API e o Angular estarão rodando ao mesmo tempo, e você poderá acessar o programa através do link `http://localhost:4200` em seu navegador.
 
