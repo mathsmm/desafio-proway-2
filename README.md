@@ -52,9 +52,9 @@
 
 ## Como rodar a aplicação
 
- Antes de tudo, é preciso ter o SQL Server instalado em seu computador. A API utiliza o serviço do SQL para gerenciar um banco de dados.
+ Antes de tudo, é preciso ter o SQL Server, o .NET Framework e o .NET Core instalados em seu computador. A API utiliza esses serviços para funcionar e para gerenciar um banco de dados.
   
- Depois de baixar o SQL Server, é preciso configurar a conexão no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão.
+ Depois de baixar os programas necessários, é preciso configurar a conexão no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão do banco de dados no SQL.
   
  Para executar a API através do Visual Studio Code, deve-se abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "Training_API" no diretório "BackEnd" com o comando `cd` e a tecla `TAB` e digitar os seguintes comandos:
  ```
@@ -68,4 +68,39 @@
  Após isso, no Visual Studio Code, necessita-se abrir outro Terminal, utilizar o comando `cd` e a tecla `TAB` para selecionar a pasta "Training" no diretório "FrontEnd" e digitar os seguintes comandos:
  ```
  npm install -g @angular/cli
+ npm update
+ npm start
  ```
+  
+ Após essas etapas, a API e o Angular estarão rodando ao mesmo tempo, e você poderá acessar o programa através do link `http://localhost:4200` em seu navegador.
+
+## Como rodar os testes unitários
+ Para desempenhar os testes unitários do diretório `BackEnd/UnitTesting/Calculation.tests` através do Visual Studio Code, basta abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "EscolaAlf_API" com o comando `cd` e a tecla `TAB` e digitar o seguinte comando:
+ ```
+ dotnet test
+ ```
+
+## Ideia das tabelas
+ ![](FrontEnd/IMG/TablesExample.png)
+
+## Pacotes utilizados
+ BackEnd:
+ - Microsoft.EntityFrameworkCore
+ - Microsoft.EntityFrameworkCore.SqlServer
+ - Microsoft.EntityFrameworkCore.Design
+ - Microsoft.EntityFrameworkCore.Tools
+ - Microsoft.EntityFrameworkCore.Analyzers
+ - Microsoft.AspNetCore.Mvc.NewtonsoftJson --version 3.1.7
+ - NUnit --version 3.12.0  
+  
+ FrontEnd:
+ - Bootstrap
+ - NGX-Bootstrap
+  
+ Os pacotes do EntityFrameworkCore foram usados para desenvolver a API;  
+ O pacote NewtonsoftJson foi empregado para impedir ciclos incessantes ao receber respostas da API;  
+ O pacote NUnit foi utilizado para realizar testes unitários na classe de verificação de listas na API;
+ Os pacotes do FrontEnd foram recorridos com o intuito de estilizar as páginas HTML.
+
+## Funcionamento
+ 
