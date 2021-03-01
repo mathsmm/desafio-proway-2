@@ -108,7 +108,10 @@
  Semelhante à tabela anterior, esta relaciona as tabelas Person, Rest-Room e Rest-Time. Ela associa uma pessoa a uma sala de descanso (para realizar o intervalo) e também armazena o horário que essa pessoa comparecerá a tal sala.
 
 ## Efetuação das restrições
-### - A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa.
+### Importante:
+ Para observar as restrições atuando nas tabelas Training-Room-Person e Rest-Room-Person, é preciso inspecionar elemento em seu navegador e observar o CONSOLE. Se uma restrição for violada, quem notificará será o CONSOLE do navegador.
+
+### 1 - A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa.
  Para esta restrição foi criada uma função na classe de verificação na pasta Services da API que recebe uma lista da quantidade de alunos em cada sala e retorna TRUE caso a diferença na quantidade for maior que um.  
  Diretório: `BackEnd/Training_API/Data/Services/Verification/VerificationService.cs`
  ```c#
@@ -142,7 +145,7 @@
     }
  ```
 
-### - Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar a sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
+### 2 - Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar a sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
  Para esta restrição, a função do serviço da tabela Person que retorna uma consulta pelo Id recebeu os métodos `.Include()` e `.ThenInclude()` que adicionam à consulta os itens exigidos pela restrição.  
  Diretório: `BackEnd/Training_API/Data/Services/PersonService.cs`
  ```c#
@@ -165,7 +168,7 @@
     }
  ```
 
-### - Ao consultar uma sala cadastrada ou um espaço de café, o sistema deverá retornar uma lista das pessoas que estarão naquela sala ou espaço em cada etapa do evento.
+### 3 - Ao consultar uma sala cadastrada ou um espaço de café, o sistema deverá retornar uma lista das pessoas que estarão naquela sala ou espaço em cada etapa do evento.
  Semelhante à restrição anterior, as funções dos serviços das tabelas Training-Room e Rest-Room que retornam consultas pelo Id receberam os métodos `.Include()` e `.ThenInclude()` que adicionam às consultas uma lista de pessoas.
   
  Rest-Room:  
