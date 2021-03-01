@@ -142,8 +142,7 @@
  ```
 
 ### - Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar a sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
- Para esta restrição, a função do serviço da tabela Person que retorna uma consulta pelo Id recebeu os métodos `.Include()` e `.ThenInclude()` que adicionam à consulta os itens exigidos pela restrição.
-  
+ Para esta restrição, a função do serviço da tabela Person que retorna uma consulta pelo Id recebeu os métodos `.Include()` e `.ThenInclude()` que adicionam à consulta os itens exigidos pela restrição.  
  Diretório: `BackEnd/Training_API/Data/Services/PersonService.cs`
  ```c#
  public async Task<Person> GetByIdAsync(int personId, bool includeRooms)
@@ -168,7 +167,7 @@
 ### - Ao consultar uma sala cadastrada ou um espaço de café, o sistema deverá retornar uma lista das pessoas que estarão naquela sala ou espaço em cada etapa do evento.
  Semelhante à restrição anterior, as funções dos serviços das tabelas Training-Room e Rest-Room que retornam consultas pelo Id receberam os métodos `.Include()` e `.ThenInclude()` que adicionam às consultas uma lista de pessoas.
   
- Rest-Room:
+ Rest-Room:  
  Diretório: `BackEnd/Training_API/Data/Services/RestRoomService.cs`
  ```c#
  public async Task<RestRoom> GetByIdAsync(int restRoomId, bool includePeople)
@@ -184,7 +183,7 @@
     }
  ```
   
- Training-Room:
+ Training-Room:  
  Diretório: `BackEnd/Training_API/Data/Services/TrainingRoomService.cs`
  ```c#
  public async Task<TrainingRoom> GetByIdAsync(int trainingRoomId, bool includePeople)
