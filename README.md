@@ -1,6 +1,6 @@
 # DESAFIO_Treinamento
 ## Descrição do projeto
- Neste repositório há uma API RESTful e um projeto Angular criados com o intuito de responder a um desafio de um processo seletivo.
+ Neste repositório há uma API RESTful e um projeto do Angular criados com o intuito de responder a um desafio de um processo seletivo.
  A API foi desenvolvida com a linguagem de programação C#, utilizando o editor de código-fonte Visual Studio Code. 
  Para a disponibilização dos dados foi utilizado o Framework ASP.NET Core.
  Para criar as requisições foi utilizada a ferramenta Postman, que tem como objetivo testar serviços de WEB APIs por meio do envio de requisições HTTP, sendo possível avaliar as respostas das requisições.
@@ -13,6 +13,7 @@
 * [Ideia das tabelas](#Ideia-das-tabelas)
 * [Explicação das tabelas](#Explicação-das-tabelas)
 * [Efetuação das restrições](#Efetuação-das-restrições)
+* [Endpoints](#Endpoints)
 
 
 ## Critérios
@@ -198,3 +199,6 @@
         return await query.FirstOrDefaultAsync();
     }
  ```
+
+## Endpoints
+ Diretório: `BackEnd/Endpoints`
