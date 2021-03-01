@@ -108,7 +108,7 @@
 
 ## Efetuação das restrições
 ### - A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa.
- Para esta restrição foi criada uma função na classe de verificação na pasta Services da API que recebe uma lista da quantidade de alunos em cada sala e retorna TRUE caso a diferença na quantidade for maior que um.
+ Para esta restrição foi criada uma função na classe de verificação na pasta Services da API que recebe uma lista da quantidade de alunos em cada sala e retorna TRUE caso a diferença na quantidade for maior que um.  
  Diretório: `BackEnd/Training_API/Data/Services/Verification/VerificationService.cs`
  ```c#
  public bool VerifyDifferenceOfOne(List<int> list)
