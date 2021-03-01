@@ -9,17 +9,11 @@
 * [Critérios](#Critérios)
 * [Como rodar a aplicação](#Como-rodar-a-aplicação)
 * [Como rodar os testes unitários](#Como-rodar-os-testes-unitários)
-* [Ideia das tabelas](#Ideia-das-tabelas)
 * [Pacotes utilizados](#Pacotes-utilizados)
-* [Comandos utilizados](#Comandos-utilizados)
-* [Funcionamento da API](#Funcionamento-da-API)
-    * [Efetuação das restrições](#Efetuação-das-restrições)
-    * [Endpoints](#Endpoints)
-        * [Student (Estudante)](#Student-Estudante)
-        * [Template (Gabarito)](#Template-Gabarito)
-        * [StudentReply (Resposta)](#StudentReply-Resposta)
-        * [StudentGrade (Nota)](#StudentGrade-Nota)
-        * [StudentSituation (Situação)](#StudentSituation-Situação)
+* [Ideia das tabelas](#Ideia-das-tabelas)
+* [Explicação das tabelas](#Explicação-das-tabelas)
+* [Efetuação das restrições](#Efetuação-das-restrições)
+
 
 ## Critérios
  ### O Problema
@@ -33,7 +27,7 @@
 - O cadastro dos espaços de café pelo nome;
   
  A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa. Para estimular a troca de conhecimentos, metade das pessoas precisam trocar de sala entre as duas etapas do treinamento.
- Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar à sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
+ Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar a sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
  Ao consultar uma sala cadastrada ou um espaço de café, o sistema deverá retornar uma lista das pessoas que estarão naquela sala ou espaço em cada etapa do evento.
 
 ### Requisitos obrigatórios:
@@ -54,7 +48,7 @@
 
  Antes de tudo, é preciso ter o SQL Server, o .NET Framework e o .NET Core instalados em seu computador. A API utiliza esses serviços para funcionar e para gerenciar um banco de dados.
   
- Depois de baixar os programas necessários, é preciso configurar a conexão no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão do banco de dados no SQL.
+ Depois de baixar os programas necessários, é preciso configurar a conexão com o banco de dados SQL no diretório `BackEnd/Training_API/appsettings.json` e na chave "Connection", cujo valor será a string de conexão.
   
  Para executar a API através do Visual Studio Code, deve-se abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "Training_API" no diretório "BackEnd" com o comando `cd` e a tecla `TAB` e digitar os seguintes comandos:
  ```
@@ -75,13 +69,10 @@
  Após essas etapas, a API e o Angular estarão rodando ao mesmo tempo, e você poderá acessar o programa através do link `http://localhost:4200` em seu navegador.
 
 ## Como rodar os testes unitários
- Para desempenhar os testes unitários do diretório `BackEnd/UnitTesting/Calculation.tests` através do Visual Studio Code, basta abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "EscolaAlf_API" com o comando `cd` e a tecla `TAB` e digitar o seguinte comando:
+ Para desempenhar os testes unitários do diretório `BackEnd/UnitTesting/Verification.tests` através do Visual Studio Code, basta abrir o Terminal com a combinação de teclas `Ctrl + Shift + '` ou `Ctrl + '`, selecionar a pasta "Training_API" com o comando `cd` e a tecla `TAB` e digitar o seguinte comando:
  ```
  dotnet test
  ```
-
-## Ideia das tabelas
- ![](FrontEnd/IMG/TablesExample.png)
 
 ## Pacotes utilizados
  BackEnd:
@@ -102,5 +93,56 @@
  O pacote NUnit foi utilizado para realizar testes unitários na classe de verificação de listas na API;
  Os pacotes do FrontEnd foram recorridos com o intuito de estilizar as páginas HTML.
 
-## Funcionamento
- 
+## Ideia das tabelas
+ ![](FrontEnd/IMG/TablesExample.png)
+
+## Explicação das tabelas
+### Person, Training-Room, Rest-Room, Stage-Time e Rest-Time
+ Estas tabelas armazenam as informações das pessoas, salas de treinamento, salas de descanso (para os intervalos), horários das etapas e horário dos intervalos, respectivamente.
+
+### Training-Room-Person
+ Esta tabela relaciona as tabelas Person, Training-Room e Stage-Time. Ela associa uma pessoa a uma sala de treinamento e também armazena o horário que essa pessoa comparecerá a tal sala.
+
+### Rest-Room-person
+ Semelhante à tabela anterior, esta relaciona as tabelas Person, Rest-Room e Rest-Time. Ela associa uma pessoa a uma sala de descanso (para realizar o intervalo) e também armazena o horário que essa pessoa comparecerá a tal sala.
+
+## Efetuação das restrições
+### - A diferença de pessoas em cada sala deverá ser de no máximo 1 pessoa.
+ Para esta restrição foi criada uma função na classe de verificação na pasta Services da API que recebe uma lista da quantidade de alunos em cada sala e retorna TRUE caso a diferença na quantidade for maior que um.
+ Diretório: `BackEnd/Training_API/Data/Services/Verification/VerificationService.cs`
+ ```c#
+ public bool VerifyDifferenceOfOne(List<int> list)
+    {
+        int maxValue = list.Max<int>();
+        int minValue = list.Min<int>();
+        if ((maxValue - minValue) > 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+ ```
+  
+ OBS: Também foi adicionada uma função na mesma classe que recebe a capacidade de uma sala e a quantidade de pessoas nela e retorna TRUE caso a sala já esteja lotada.
+ ```c#
+ public bool VerifyPeopleExcess(int roomCapacity, int peopleQuantity)
+    {
+        if (peopleQuantity > roomCapacity)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+ ```
+
+### - Ao consultar uma pessoa cadastrada no treinamento, o sistema deverá retornar a sala em que a pessoa ficará em cada etapa e o espaço onde ela realizará cada intervalo de café.
+ Para esta restrição, a função do serviço da tabela Person que retorna uma consulta pelo Id recebeu os métodos `.Include()` e `.ThenInclude()` que adicionam à consulta os itens exigidos pela restrição.
+
+### - Ao consultar uma sala cadastrada ou um espaço de café, o sistema deverá retornar uma lista das pessoas que estarão naquela sala ou espaço em cada etapa do evento.
+ Semelhante à restrição anterior, as funções dos serviços das tabelas Training-Room e Rest-Room que retornam consultas pelo Id receberam os métodos `.Include()` e `.ThenInclude()` que adicionam às consultas uma lista de pessoas.
